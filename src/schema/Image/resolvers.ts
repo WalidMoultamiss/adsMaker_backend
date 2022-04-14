@@ -7,6 +7,7 @@ export const resolvers: Resolvers = {
     getAllImages: async (): Promise<IImage[]> => {
       return await Image.find();
     },
+    //@ts-ignore
     getAllImagesByUser: async (
       _: any,
       { user }: { user: String }

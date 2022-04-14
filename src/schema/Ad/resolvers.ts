@@ -24,6 +24,7 @@ export const resolvers: Resolvers = {
     getAllAds: async (): Promise<IAd[]> => {
       return await Ad.find();
     },
+    //@ts-ignore
     getAllAdsByUser: async (
       _: any,
       { user }: { user: String }
@@ -52,6 +53,7 @@ export const resolvers: Resolvers = {
     },
   },
   Ad: {
+    //@ts-ignore
     user: async (ad: IAd): Promise<IUser> => {
       const user = await User.findById(ad.user);
       if (user) {
@@ -59,6 +61,7 @@ export const resolvers: Resolvers = {
       }
       throw new Error("User not found");
     },
+    //@ts-ignore
     components: async (ad: IAd): Promise<IComponent[]> => {
       const components = await Component.find({ ad: ad.id });
       if (components) {

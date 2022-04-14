@@ -37,6 +37,7 @@ export const resolvers: Resolvers = {
     },
   },
   Component: {
+    //@ts-ignore
     ad: async (component: IComponent): Promise<IAd> => {
       const ad = await Ad.findById(component.ad);
       if (ad) {
