@@ -1,6 +1,7 @@
 import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
+
   input ImageInput {
     src: String!
     alt: String!
@@ -22,7 +23,7 @@ export const typeDefs = gql`
 
 
   type Mutation {
-    createImage(input: ImageInput!): Image
+    createImage(input: ImageInput): Image
     deleteImage(id: ID!): Image
   }
 

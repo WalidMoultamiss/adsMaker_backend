@@ -4,23 +4,21 @@ export const typeDefs = gql`
   input AdInput {
     title: String!
     user: ID!
-    components: [ID!]!
-    bgImage: ID!
-    bgColor: String
     width: Int!
+    adImage: String!
+    json: String!
     height: Int!
-    viewCount: Int!
-    isPremium: Boolean!
+    viewCount: Int
+    isPremium: Boolean
   }
 
   type Ad {
     id: ID!
     title: String!
     user: User!
-    components: [Component!]!
-    bgImage: Image!
-    bgColor: String
     width: Int!
+    json: String!
+    adImage: String!
     height: Int!
     viewCount: Int!
     isPremium: Boolean!

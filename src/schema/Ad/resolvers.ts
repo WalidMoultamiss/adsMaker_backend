@@ -39,7 +39,8 @@ export const resolvers: Resolvers = {
   Mutation: {
     //@ts-ignore
     createAd: async (_, { input }): Promise<IAd> => {
-      const ad = new Ad(input);
+      const ad = new Ad({...input , createdAt: new Date() , 
+        viewCount: 0, isPremium: false});
       return await ad.save();
     },
     //@ts-ignore
@@ -60,14 +61,6 @@ export const resolvers: Resolvers = {
         return user;
       }
       throw new Error("User not found");
-    },
-    //@ts-ignore
-    components: async (ad: IAd): Promise<IComponent[]> => {
-      const components = await Component.find({ ad: ad.id });
-      if (components) {
-        return components;
-      }
-      throw new Error("Components not found");
     },
   },
 };

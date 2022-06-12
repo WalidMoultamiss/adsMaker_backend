@@ -149,7 +149,7 @@ export type MutationCreateComponentArgs = {
 
 
 export type MutationCreateImageArgs = {
-  input: ImageInput;
+  input?: InputMaybe<ImageInput>;
 };
 
 
@@ -482,7 +482,7 @@ export type ImgCompResolvers<ContextType = Context, ParentType extends Resolvers
 export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createAd?: Resolver<Maybe<ResolversTypes['Ad']>, ParentType, ContextType, RequireFields<MutationCreateAdArgs, 'input'>>;
   createComponent?: Resolver<Maybe<ResolversTypes['Component']>, ParentType, ContextType, RequireFields<MutationCreateComponentArgs, 'input'>>;
-  createImage?: Resolver<Maybe<ResolversTypes['Image']>, ParentType, ContextType, RequireFields<MutationCreateImageArgs, 'input'>>;
+  createImage?: Resolver<Maybe<ResolversTypes['Image']>, ParentType, ContextType, Partial<MutationCreateImageArgs>>;
   createImgComp?: Resolver<Maybe<ResolversTypes['ImgComp']>, ParentType, ContextType, RequireFields<MutationCreateImgCompArgs, 'input'>>;
   createQrCodeComp?: Resolver<Maybe<ResolversTypes['QrCodeComp']>, ParentType, ContextType, RequireFields<MutationCreateQrCodeCompArgs, 'input'>>;
   createTextComp?: Resolver<Maybe<ResolversTypes['TextComp']>, ParentType, ContextType, RequireFields<MutationCreateTextCompArgs, 'input'>>;
